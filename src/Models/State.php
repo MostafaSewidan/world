@@ -3,14 +3,16 @@
 namespace Nnjeim\World\Models;
 
 use Nnjeim\World\Models\Traits\StateRelations;
+use Spatie\Translatable\HasTranslations;
 
 use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-	use StateRelations;
+	use StateRelations, HasTranslations;
 
 	protected $guarded = [];
+    public $translatable 	= [ 'name' ];
 
 	public $timestamps = false;
 
@@ -23,4 +25,12 @@ class State extends Model
 	{
 		return config('world.migrations.states.table_name', parent::getTable());
 	}
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = [
+            'ar' => $value,
+            'en' => $value
+        ];
+    }
 }

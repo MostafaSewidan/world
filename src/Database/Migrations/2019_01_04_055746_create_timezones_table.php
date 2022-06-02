@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatesTable extends Migration
+class CreateTimezonesTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -13,16 +13,11 @@ class CreateStatesTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create(config('world.migrations.states.table_name'), function (Blueprint $table) {
+		Schema::create(config('world.migrations.timezones.table_name'), function (Blueprint $table) {
 			$table->id();
 			$table->foreignId('country_id');
 			$table->string('name');
-
-			foreach (config('world.migrations.states.optional_fields') as $field => $value) {
-				if ($value['required']) {
-					$table->string($field, $value['length'] ?? null);
-				}
-			}
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
 		});
 	}
 
@@ -33,6 +28,6 @@ class CreateStatesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists(config('world.migrations.states.table_name'));
+		Schema::dropIfExists(config('world.migrations.timezones.table_name'));
 	}
 }

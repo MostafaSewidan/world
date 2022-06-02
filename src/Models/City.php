@@ -5,12 +5,14 @@ namespace Nnjeim\World\Models;
 use Nnjeim\World\Models\Traits\CityRelations;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class City extends Model
 {
-	use CityRelations;
+	use CityRelations , HasTranslations;
 
 	protected $guarded = [];
+    public $translatable 	= [ 'name' ];
 
 	public $timestamps = false;
 
@@ -23,4 +25,12 @@ class City extends Model
 	{
 		return config('world.migrations.cities.table_name', parent::getTable());
 	}
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = [
+            'ar' => $value,
+            'en' => $value
+        ];
+    }
 }

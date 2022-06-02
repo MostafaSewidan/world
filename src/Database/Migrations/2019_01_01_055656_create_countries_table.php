@@ -16,7 +16,7 @@ class CreateCountriesTable extends Migration
 		Schema::create(config('world.migrations.countries.table_name'), function (Blueprint $table) {
 			$table->id();
 			$table->string('iso2', 2);
-			$table->string('name');
+			$table->json('name');
 			$table->tinyInteger('status')->default(1);
 
 			foreach (config('world.migrations.countries.optional_fields') as $field => $value) {
