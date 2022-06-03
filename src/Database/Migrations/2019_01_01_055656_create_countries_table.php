@@ -21,7 +21,7 @@ class CreateCountriesTable extends Migration
 
 			foreach (config('world.migrations.countries.optional_fields') as $field => $value) {
 				if ($value['required']) {
-					$table->string($field, $value['length'] ?? null)->nullable();
+					$table->text($field, $value['length'] ?? null)->nullable();
 				}
 			}
 		});

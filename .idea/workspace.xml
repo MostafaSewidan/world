@@ -5,13 +5,6 @@
       <change beforePath="$PROJECT_DIR$/src/Database/Migrations/2019_01_01_055656_create_countries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Migrations/2019_01_01_055656_create_countries_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/Migrations/2019_01_02_071730_create_states_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Migrations/2019_01_02_071730_create_states_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/Migrations/2019_01_03_055725_create_cities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Migrations/2019_01_03_055725_create_cities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/Migrations/2019_01_04_055746_create_timezones_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Migrations/2019_01_04_055746_create_timezones_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/Migrations/2019_01_05_082414_create_currencies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Migrations/2019_01_05_082414_create_currencies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Currency.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Currency.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/State.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/State.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_04_055746_create_timezones_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="90">
               <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
             </state>
           </provider>
@@ -58,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_03_055725_create_cities_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="24" column="68" lean-forward="true" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="81" />
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -66,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_02_071730_create_states_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+            <state relative-caret-position="315">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -76,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_01_055656_create_countries_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="23" column="81" selection-start-line="23" selection-start-column="81" selection-end-line="23" selection-end-column="81" />
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -228,12 +221,12 @@
       <option name="presentableId" value="Default" />
       <updated>1654194915526</updated>
       <workItem from="1654194916693" duration="2547000" />
-      <workItem from="1654284183128" duration="1928000" />
+      <workItem from="1654284183128" duration="2331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4475000" />
+    <option name="totallyTimeSpent" value="4878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1600" height="829" extended-state="6" />
@@ -252,7 +245,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3298969" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3298969" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3298969" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -382,13 +375,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_06_034939_create_languages_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_05_082414_create_currencies_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -396,9 +382,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_06_034939_create_languages_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_04_055746_create_timezones_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="90">
           <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
         </state>
       </provider>
@@ -406,21 +399,21 @@
     <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_03_055725_create_cities_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="24" column="68" lean-forward="true" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="81" />
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_02_071730_create_states_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+        <state relative-caret-position="315">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Database/Migrations/2019_01_01_055656_create_countries_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="23" column="81" selection-start-line="23" selection-start-column="81" selection-end-line="23" selection-end-column="81" />
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
         </state>
       </provider>
     </entry>
