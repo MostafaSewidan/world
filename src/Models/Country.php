@@ -26,13 +26,28 @@ class Country extends Model
         return config('world.migrations.countries.table_name', parent::getTable());
     }
 
-
-    public function setNameAttribute($value)
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public static function boot()
     {
-        $country_ar = include '../../resources/lang/ar/country.php';
-        $this->attributes['name'] = [
-            'ar' => (isset($country_ar[$this->attributes['iso2']]) ? $country_ar[$this->attributes['iso2']] : $value),
-            'en' => $value
-        ];
+        parent::boot();
+
+        /**
+         * Write code on Method
+         *
+         * @return response()
+         */
+        static::creating(function ($item) {
+
+            $country_ar = include_once __DIR__.'/../../resources/lang/ar/country.php';
+
+            $item->name = [
+                'ar' => (isset($country_ar[$item->iso2]) ? $country_ar[$item->iso2] : $item->name),
+                'en' => $item->name
+            ];
+        });
     }
 }

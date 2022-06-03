@@ -26,11 +26,27 @@ class State extends Model
 		return config('world.migrations.states.table_name', parent::getTable());
 	}
 
-    public function setNameAttribute($value)
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public static function boot()
     {
-        $this->attributes['name'] = [
-            'ar' => $value,
-            'en' => $value
-        ];
+        parent::boot();
+
+        /**
+         * Write code on Method
+         *
+         * @return response()
+         */
+        static::creating(function ($item) {
+
+            $item->name = [
+
+                'ar' => $item->name,
+                'en' => $item->name
+            ];
+        });
     }
 }

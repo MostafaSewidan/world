@@ -24,4 +24,27 @@ class Language extends Model
 	{
 		return config('world.migrations.languages.table_name', parent::getTable());
 	}
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        /**
+         * Write code on Method
+         *
+         * @return response()
+         */
+        static::creating(function ($item) {
+
+            $item->name = [
+                'ar' => $item->name,
+                'en' => $item->name
+            ];
+        });
+    }
 }

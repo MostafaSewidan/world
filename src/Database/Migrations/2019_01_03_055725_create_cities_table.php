@@ -19,12 +19,10 @@ class CreateCitiesTable extends Migration
 			$table->foreignId('state_id');
 			$table->json('name');
             $table->integer('status')->default(1);
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
 
 			foreach (config('world.migrations.cities.optional_fields') as $field => $value) {
 				if ($value['required']) {
-					$table->string($field, $value['length'] ?? null);
+					$table->string($field, $value['length'] ?? null)->nullable();
 				}
 			}
 		});
