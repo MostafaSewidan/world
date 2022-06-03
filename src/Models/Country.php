@@ -40,14 +40,25 @@ class Country extends Model
          *
          * @return response()
          */
-        static::creating(function ($item) {
+        static::created(function ($item) {
 
-            $country_ar = include_once __DIR__.'/../../resources/lang/ar/country.php';
+            $country_ar = include __DIR__.'/../../resources/lang/ar/country.php';
 
-            $item->name = [
-                'ar' => (isset($country_ar[$item->iso2]) ? $country_ar[$item->iso2] : $item->name),
-                'en' => $item->name
-            ];
+            if(array_key_exists($item->iso2 , $country_ar)){
+
+                $item->name = [
+                    'ar' => $country_ar[$item->iso2],
+                    'en' => $item->name
+                ];
+            }else{
+
+                $item->name = [
+                    'ar' => $item->name,
+                    'en' => $item->name
+                ];
+            }
+
+            $item->save();
         });
     }
 }
