@@ -7,13 +7,13 @@ It can be consumed with the World Facade or the defined Api routes.
 ### Installation
 
 ```
-composer require nnjeim/world
+composer require tocaan/world
 
 php artisan vendor:publish --tag=world
 
 php artisan migrate
 
-php artisan db:seed --class=WorldSeeder (requires ~15min)
+php artisan db:seed --class=WorldSeeder
 ```
 
 ### Upgrading to v1.1.12?

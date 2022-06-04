@@ -12,7 +12,7 @@ class State extends Model
 	use StateRelations, HasTranslations;
 
 	protected $guarded = [];
-    public $translatable 	= [ 'name' ];
+    public $translatable 	= [ 'name','title' ];
 
 	public $timestamps = false;
 

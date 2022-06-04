@@ -18,6 +18,7 @@ class CreateTimezonesTable extends Migration
 			$table->string('name');
 
             $table->bigInteger('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
 		});
 	}
 

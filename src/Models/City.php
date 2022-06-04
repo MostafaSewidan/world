@@ -12,7 +12,7 @@ class City extends Model
 	use CityRelations , HasTranslations;
 
 	protected $guarded = [];
-    public $translatable 	= [ 'name' ];
+    public $translatable 	= [ 'name','title' ];
 
 	public $timestamps = false;
 

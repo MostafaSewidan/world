@@ -25,6 +25,7 @@ class CreateCurrenciesTable extends Migration
 			$table->string('thousands_separator', 1)->default(',');
 
             $table->bigInteger('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
 		});
 	}
 

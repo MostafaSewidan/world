@@ -107,7 +107,7 @@ class SeedAction extends Seeder
 	{
 		if (array_key_exists($module, $this->modules)) {
 			// truncate module database table.
-			app($this->modules[$module]['class'])->truncate();
+//			app($this->modules[$module]['class'])->truncate();
 			// import json data.
 			$moduleSourcePath = __DIR__ . '/../../resources/json/' . $module . '.json';
 
@@ -131,7 +131,7 @@ class SeedAction extends Seeder
 	 */
 	private function initCountries(): void
 	{
-		app(Models\Country::class)->truncate();
+//		app(Models\Country::class)->truncate();
 
 		$this->countries['data'] = json_decode(File::get(__DIR__ . '/../../resources/json/countries.json'), true);
 

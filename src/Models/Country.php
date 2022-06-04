@@ -12,7 +12,7 @@ class Country extends Model
     use CountryRelations, HasTranslations;
 
     protected $guarded = [];
-    public $translatable = ['name'];
+    public $translatable = ['name','title'];
 
     public $timestamps = false;
 
