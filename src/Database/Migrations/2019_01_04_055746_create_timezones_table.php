@@ -14,9 +14,11 @@ class CreateTimezonesTable extends Migration
 	public function up()
 	{
 		Schema::create(config('world.migrations.timezones.table_name'), function (Blueprint $table) {
-			$table->id();
-			$table->foreignId('country_id');
+            $table->bigIncrements('id');
 			$table->string('name');
+
+            $table->bigInteger('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
 		});
 	}
 

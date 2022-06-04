@@ -14,8 +14,8 @@ class CreateStatesTable extends Migration
 	public function up()
 	{
 		Schema::create(config('world.migrations.states.table_name'), function (Blueprint $table) {
-			$table->id();
-			$table->foreignId('country_id');
+            $table->bigIncrements('id');
+            $table->json('title')->nullable();
 			$table->json('name');
             $table->integer('status')->default(1);
 
@@ -24,6 +24,11 @@ class CreateStatesTable extends Migration
 					$table->text($field, $value['length'] ?? null)->nullable();
 				}
 			}
+
+            $table->bigInteger('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->softDeletes();
+            $table->timestamps();
 		});
 	}
 

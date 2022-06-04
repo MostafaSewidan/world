@@ -14,9 +14,10 @@ class CreateCountriesTable extends Migration
 	public function up()
 	{
 		Schema::create(config('world.migrations.countries.table_name'), function (Blueprint $table) {
-			$table->id();
+            $table->bigIncrements('id');
 			$table->string('iso2', 2);
 			$table->json('name');
+            $table->json('title')->nullable();
 			$table->tinyInteger('status')->default(1);
 
 			foreach (config('world.migrations.countries.optional_fields') as $field => $value) {
@@ -24,6 +25,9 @@ class CreateCountriesTable extends Migration
 					$table->text($field, $value['length'] ?? null)->nullable();
 				}
 			}
+
+            $table->softDeletes();
+            $table->timestamps();
 		});
 	}
 
