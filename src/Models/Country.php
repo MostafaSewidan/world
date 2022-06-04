@@ -46,18 +46,20 @@ class Country extends Model
 
             if(array_key_exists($item->iso2 , $country_ar)){
 
-                $item->name = [
+                $title = [
                     'ar' => $country_ar[$item->iso2],
                     'en' => $item->name
                 ];
             }else{
 
-                $item->name = [
+                $title = [
                     'ar' => $item->name,
                     'en' => $item->name
                 ];
             }
 
+            $item->name = $title;
+            $item->title = $title;
             $item->save();
         });
     }

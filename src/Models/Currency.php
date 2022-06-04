@@ -57,6 +57,8 @@ class Currency extends Model
                 'ar' => $item->name,
                 'en' => $item->name
             ];
+
+            $item->save();
         });
     }
 }
