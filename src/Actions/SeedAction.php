@@ -165,9 +165,11 @@ class SeedAction extends Seeder
 
 				$stateArray = array_map(fn ($field) => gettype($field) === 'string' ? trim($field) : $field, $stateArray);
 
+				$data = Arr::only($stateArray, $stateFields);
+				$data['title'] = $data['name'];
 				$state = $country
 					->states()
-					->create(Arr::only($stateArray, $stateFields));
+					->create($data);
 				// state cities
 				if ($this->isModuleEnabled('cities')) {
 					$stateCities = Arr::where(
@@ -199,11 +201,13 @@ class SeedAction extends Seeder
 
 				$cityArray = array_map(fn ($field) => gettype($field) === 'string' ? trim($field) : $field, $cityArray);
 
+				$data = Arr::only($cityArray, $cityFields);
+				$data['title'] = $data['name'];
 				$country
 					->cities()
 					->create(
 						array_merge(
-							Arr::only($cityArray, $cityFields),
+                            $data,
 							['state_id' => $state->id]
 						)
 					);

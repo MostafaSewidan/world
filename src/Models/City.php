@@ -25,36 +25,4 @@ class City extends Model
 	{
 		return config('world.migrations.cities.table_name', parent::getTable());
 	}
-
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        /**
-         * Write code on Method
-         *
-         * @return response()
-         */
-        static::creating(function ($item) {
-
-            $item->name = [
-
-                'ar' => $item->name,
-                'en' => $item->name
-            ];
-
-            $item->title = [
-
-                'ar' => $item->name,
-                'en' => $item->name
-            ];
-
-            $item->save();
-        });
-    }
 }
