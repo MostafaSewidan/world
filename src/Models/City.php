@@ -14,7 +14,7 @@ class City extends Model
 	protected $guarded = [];
     public $translatable 	= [ 'name','title' ];
 
-	public $timestamps = false;
+	public $timestamps = true;
 
 	/**
 	 * Get the table associated with the model.
