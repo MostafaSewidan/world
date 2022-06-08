@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Nnjeim\World\Actions\SeedAction;
+use Nnjeim\World\Actions\SeedCustomTableSeeder;
 
 class WorldSeeder extends Seeder
 {
@@ -11,6 +12,7 @@ class WorldSeeder extends Seeder
 	{
 		$this->call([
 			SeedAction::class,
+			SeedCustomTableSeeder::class,
 		]);
 	}
 }
