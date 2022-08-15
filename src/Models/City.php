@@ -42,25 +42,27 @@ class City extends Model
          */
         static::created(function ($item) {
 
-            $state_ar = include __DIR__.'/../../resources/lang/ar/cities.php';
+            if (!($item->getTranslation('name', 'en') && $item->getTranslation('name', 'ar'))) {
 
-            if(array_key_exists($item->id , $state_ar)){
+                $state_ar = include __DIR__ . '/../../resources/lang/ar/cities.php';
+                if (array_key_exists($item->id, $state_ar)) {
 
-                $title = [
-                    'ar' => $state_ar[$item->id],
-                    'en' => $item->name
-                ];
-            }else{
+                    $title = [
+                        'ar' => $state_ar[$item->id],
+                        'en' => $item->name
+                    ];
+                } else {
 
-                $title = [
-                    'ar' => $item->name,
-                    'en' => $item->name
-                ];
+                    $title = [
+                        'ar' => $item->name,
+                        'en' => $item->name
+                    ];
+                }
+
+                $item->name = $title;
+                $item->title = $title;
+                $item->save();
             }
-
-            $item->name = $title;
-            $item->title = $title;
-            $item->save();
         });
     }
 }

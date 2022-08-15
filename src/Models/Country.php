@@ -42,25 +42,26 @@ class Country extends Model
          */
         static::created(function ($item) {
 
-            $country_ar = include __DIR__.'/../../resources/lang/ar/country.php';
+            if (!($item->getTranslation('name', 'en') && $item->getTranslation('name', 'ar'))) {
+                $country_ar = include __DIR__ . '/../../resources/lang/ar/country.php';
+                if (array_key_exists($item->iso2, $country_ar)) {
 
-            if(array_key_exists($item->iso2 , $country_ar)){
+                    $title = [
+                        'ar' => $country_ar[$item->iso2],
+                        'en' => $item->name
+                    ];
+                } else {
 
-                $title = [
-                    'ar' => $country_ar[$item->iso2],
-                    'en' => $item->name
-                ];
-            }else{
+                    $title = [
+                        'ar' => $item->name,
+                        'en' => $item->name
+                    ];
+                }
 
-                $title = [
-                    'ar' => $item->name,
-                    'en' => $item->name
-                ];
+                $item->name = $title;
+                $item->title = $title;
+                $item->save();
             }
-
-            $item->name = $title;
-            $item->title = $title;
-            $item->save();
         });
     }
 }
