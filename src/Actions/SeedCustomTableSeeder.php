@@ -189,20 +189,23 @@ class SeedCustomTableSeeder extends Seeder
 
             foreach ($country as $state_key => $state){
                 $stateQ = State::where(['country_code' => $country_key, 'state_code' => $state_key])->first();
-                $stateQ->update([
-                    'title' => $state['title']
-                ]);
+                if($stateQ){
 
-                $stateQ->cities()->delete();
-
-                foreach($state['states'] as $city){
-                    $stateQ->cities()->create([
-                        'country_id' => $stateQ->country_id,
-                        'title' => $city,
-                        'name' => $city,
-                        'country_code' => $stateQ->country_code,
-                        'state_code' => $stateQ->state_code,
+                    $stateQ->update([
+                        'title' => $state['title']
                     ]);
+    
+                    $stateQ->cities()->delete();
+    
+                    foreach($state['states'] as $city){
+                        $stateQ->cities()->create([
+                            'country_id' => $stateQ->country_id,
+                            'title' => $city,
+                            'name' => $city,
+                            'country_code' => $stateQ->country_code,
+                            'state_code' => $stateQ->state_code,
+                        ]);
+                    }
                 }
             }
         }
