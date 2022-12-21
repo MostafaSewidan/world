@@ -19,6 +19,7 @@ class CreateCountriesTable extends Migration
 			$table->json('name');
             $table->json('title')->nullable();
 			$table->tinyInteger('status')->default(1);
+			$table->tinyInteger('installed')->default(0);
 
 			foreach (config('world.migrations.countries.optional_fields') as $field => $value) {
 				if ($value['required']) {

@@ -4,6 +4,7 @@ namespace Nnjeim\World;
 
 use Illuminate\Support\ServiceProvider;
 use Nnjeim\World\WorldHelper;
+use  Nnjeim\World\Console\InstallCountryDatabase;
 
 class WorldServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,9 @@ class WorldServiceProvider extends ServiceProvider
 
 	public function boot()
 	{
+        $this->commands([
+            InstallCountryDatabase::class
+        ]);
 		// Load routes
 		$this->loadRoutesFrom(__DIR__ . '/Routes/index.php');
 		// Load translations

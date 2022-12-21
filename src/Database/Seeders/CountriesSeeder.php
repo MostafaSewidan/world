@@ -1,30 +1,20 @@
 <?php
 
-namespace Nnjeim\World\Actions;
+namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Nnjeim\World\Models;
-use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
-class SeedAction extends Seeder
+class CountriesSeeder extends Seeder
 {
 	private array $countries = [
 		'data' => [],
 	];
 
 	private array $modules = [
-		'states' => [
-			'class' => Models\State::class,
-			'data' => [],
-			'enabled' => false,
-		],
-		'cities' => [
-			'class' => Models\City::class,
-			'data' => [],
-			'enabled' => false,
-		],
 		'timezones' => [
 			'class' => Models\Timezone::class,
 			'enabled' => false,
@@ -47,7 +37,7 @@ class SeedAction extends Seeder
 		$this->initCountries();
 		// init modules
 		foreach (config('world.modules') as $module => $enabled) {
-			if ($enabled) {
+			if ($enabled && array_key_exists($module,$this->modules)) {
 				$this->modules[$module]['enabled'] = true;
 				$this->initModule($module);
 			}
@@ -70,15 +60,9 @@ class SeedAction extends Seeder
 			foreach ($countryChunks as $countryArray) {
 
 				$countryArray = array_map(fn ($field) => gettype($field) === 'string' ? trim($field) : $field, $countryArray);
-				
-				$countryArray['installed'] = 1;
-				array_push($countryFields, 'installed');
-				
+
 				$country = Models\Country::create(Arr::only($countryArray, $countryFields));
-				// states and cities
-				if ($this->isModuleEnabled('states')) {
-					$this->seedStates($country, $countryArray);
-				}
+				
 				// timezones
 				if ($this->isModuleEnabled('timezones')) {
 					$this->seedTimezones($country, $countryArray);
@@ -147,75 +131,6 @@ class SeedAction extends Seeder
 			$this->countries['data'] = Arr::where($this->countries['data'], function ($value, $key) {
 				return !in_array($value['iso2'], config('world.disallowed_countries'));
 			});
-	}
-
-	/**
-	 * @param  Models\Country  $country
-	 * @param array $countryArray
-	 */
-	private function seedStates(Models\Country $country, array $countryArray): void
-	{
-		// country states and cities
-		$countryStates = Arr::where($this->modules['states']['data'], fn ($state) => $state['country_id'] === $countryArray['id']);
-		// state schema
-		$stateFields = Schema::getColumnListing(config('world.migrations.states.table_name'));
-
-		$this->forgetFields($stateFields, ['id', 'country_id']);
-
-		foreach (array_chunk($countryStates, 20) as $stateChunks) {
-
-			foreach ($stateChunks as $stateArray) {
-
-				$stateArray = array_map(fn ($field) => gettype($field) === 'string' ? trim($field) : $field, $stateArray);
-
-				$data = Arr::only($stateArray, $stateFields);
-				$data['title'] = $data['name'];
-				$state = $country
-					->states()
-					->create($data);
-				// state cities
-				if ($this->isModuleEnabled('cities')) {
-					$stateCities = Arr::where(
-						$this->modules['cities']['data'],
-						fn ($city) => $city['country_id'] === $countryArray['id'] && $city['state_id'] === $stateArray['id']
-					);
-
-					$this->seedCities($country, $state, $stateCities);
-				}
-			}
-		}
-	}
-
-	/**
-	 * @param  Models\Country  $country
-	 * @param  Models\State  $state
-	 * @param  array  $cities
-	 */
-	private function seedCities(Models\Country $country, Models\State $state, array $cities): void
-	{
-		// state schema
-		$cityFields = Schema::getColumnListing(config('world.migrations.cities.table_name'));
-
-		$this->forgetFields($cityFields, ['id', 'country_id', 'state_id']);
-
-		foreach (array_chunk($cities, 20) as $cityChunks) {
-
-			foreach ($cityChunks as $cityArray) {
-
-				$cityArray = array_map(fn ($field) => gettype($field) === 'string' ? trim($field) : $field, $cityArray);
-
-				$data = Arr::only($cityArray, $cityFields);
-				$data['title'] = $data['name'];
-				$country
-					->cities()
-					->create(
-						array_merge(
-                            $data,
-							['state_id' => $state->id]
-						)
-					);
-			}
-		}
 	}
 
 	/**
