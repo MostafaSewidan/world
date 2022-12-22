@@ -148,6 +148,15 @@ class InstallCountryDatabase extends Command
 			}
 		}
 	}
+	
+	/**
+	 * @param  string  $module
+	 * @return bool
+	 */
+	private function isModuleEnabled(string $module): bool
+	{
+		return $this->modules[$module]['enabled'];
+	}
 
 
     /**
