@@ -148,7 +148,7 @@ class InstallCountryDatabase extends Command
 			}
 		}
 	}
-	
+
 	/**
 	 * @param  string  $module
 	 * @return bool
@@ -156,6 +156,20 @@ class InstallCountryDatabase extends Command
 	private function isModuleEnabled(string $module): bool
 	{
 		return $this->modules[$module]['enabled'];
+	}
+
+	/**
+	 * @param  array  $array
+	 * @param  array  $values
+	 * @return void
+	 */
+	private function forgetFields(array &$array, array $values)
+	{
+		foreach ($values as $value) {
+			if (($key = array_search($value, $array)) !== false) {
+				unset($array[$key]);
+			}
+		}
 	}
 
 
