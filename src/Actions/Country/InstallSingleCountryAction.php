@@ -114,7 +114,7 @@ class InstallSingleCountryAction
 	private function initModule(string $module)
 	{
 		if (array_key_exists($module, $this->modules)) {
-			$moduleSourcePath = __DIR__ . '/../../resources/json/' . $module . '.json';
+			$moduleSourcePath = __DIR__ . '/../../../resources/json/' . $module . '.json';
 
 			if (File::exists($moduleSourcePath)) {
 				$this->modules[$module]['data'] = json_decode(File::get($moduleSourcePath), true);
