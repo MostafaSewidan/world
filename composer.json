@@ -1,5 +1,5 @@
 {
-    "name": "tocaan/world",
+    "name": "sewidan/world",
     "description": "Laravel countries, states, cities and currencies",
     "keywords": [
         "laravel",
@@ -10,13 +10,13 @@
         "timezones",
         "currencies"
     ],
-    "homepage": "https://github.com/Tocaanco/world.git",
+    "homepage": "https://github.com/MostafaSewidan/world",
     "license": "MIT",
     "type": "laravel-package",
     "authors": [
         {
-            "name": "Tocaan World",
-            "email": "world@tocaan.com",
+            "name": "Sewidan World",
+            "email": "sewidanmostafa@gmail.com",
             "role": "Developer"
         }
     ],
