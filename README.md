@@ -7,13 +7,15 @@ It can be consumed with the World Facade or the defined Api routes.
 ### Installation
 
 ```
-composer require tocaan/world
+composer require sewidan/world
 
 php artisan vendor:publish --tag=world
 
 php artisan migrate
 
-php artisan db:seed --class=WorldSeeder
+php artisan db:seed --class=WorldSeeder  //if you need to seed all world countries and cities
+php artisan db:seed --class=CountriesSeeder  //if you need to seed only world countries
+php artisan install:country {country ID}  //if you need to seed cities by country ID
 ```
 
 ### Upgrading to v1.1.12?
