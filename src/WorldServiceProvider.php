@@ -50,7 +50,7 @@ class WorldServiceProvider extends ServiceProvider
 
 		$this->publishes([
 			__DIR__ . '/Database/Seeders/WorldSeeder.php' => database_path('seeders/WorldSeeder.php'),
-			__DIR__ . '/Database/Seeders/WorldSeeder.php' => database_path('seeders/CountriesSeeder.php'),
+			__DIR__ . '/Database/Seeders/CountriesSeeder.php' => database_path('seeders/CountriesSeeder.php'),
 		], 'world');
 
 		$this->publishes([
