@@ -22,7 +22,6 @@
     ],
     "require": {
         "php": ">=7.4",
-        "spatie/laravel-translatable": "^6.5"
     },
     "require-dev": {
         "orchestra/testbench": ">=v4.0.0",
